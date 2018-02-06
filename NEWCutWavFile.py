@@ -1,7 +1,7 @@
 #coding=gbk
 
 '''
-Created on 2015Äê12ÔÂ28ÈÕ
+Created on 2015å¹´12æœˆ28æ—¥
 
 @author: Gang
 '''
@@ -12,11 +12,11 @@ import wave
 import numpy as np
 import pylab as plt
 
-CutTimeDef = 240 #ÒÔ240ms½Ø¶ÏÎÄ¼ş
+CutTimeDef = 240 #ä»¥240msæˆªæ–­æ–‡ä»¶
 CutFrameNum =0
-musicPrimaryName = "×¯ĞÄåû - µ½²»ÁË"
+musicPrimaryName = "åº„å¿ƒå¦ - åˆ°ä¸äº†"
 
-musicPrimaryName = "±¬Òô¼ÓÃÜ"
+
 FileName = ".\Music\\"+musicPrimaryName + ".wav"
 
 
@@ -27,11 +27,11 @@ def SetFileName(WavFileName):
 def CutFile():
     global  FileName
     print("CutFile File Name is ",FileName)
-    # ´ò¿ªwavÎÄ¼ş £¬open·µ»ØÒ»¸öµÄÊÇÒ»¸öWave_readÀàµÄÊµÀı£¬Í¨¹ıµ÷ÓÃËüµÄ·½·¨¶ÁÈ¡WAVÎÄ¼şµÄ¸ñÊ½ºÍÊı¾İ¡£
+    # æ‰“å¼€wavæ–‡ä»¶ ï¼Œopenè¿”å›ä¸€ä¸ªçš„æ˜¯ä¸€ä¸ªWave_readç±»çš„å®ä¾‹ï¼Œé€šè¿‡è°ƒç”¨å®ƒçš„æ–¹æ³•è¯»å–WAVæ–‡ä»¶çš„æ ¼å¼å’Œæ•°æ®ã€‚
     f = wave.open(r"" + FileName, "rb")
-    # ¶ÁÈ¡¸ñÊ½ĞÅÏ¢
-    # Ò»´ÎĞÔ·µ»ØËùÓĞµÄWAVÎÄ¼şµÄ¸ñÊ½ĞÅÏ¢£¬Ëü·µ»ØµÄÊÇÒ»¸ö×éÔª(tuple)£ºÉùµÀÊı, Á¿»¯Î»Êı£¨byteµ¥Î»£©, ²É
-    # ÑùÆµÂÊ, ²ÉÑùµãÊı, Ñ¹ËõÀàĞÍ, Ñ¹ËõÀàĞÍµÄÃèÊö¡£waveÄ£¿éÖ»Ö§³Ö·ÇÑ¹ËõµÄÊı¾İ£¬Òò´Ë¿ÉÒÔºöÂÔ×îºóÁ½¸öĞÅÏ¢
+    # è¯»å–æ ¼å¼ä¿¡æ¯
+    # ä¸€æ¬¡æ€§è¿”å›æ‰€æœ‰çš„WAVæ–‡ä»¶çš„æ ¼å¼ä¿¡æ¯ï¼Œå®ƒè¿”å›çš„æ˜¯ä¸€ä¸ªç»„å…ƒ(tuple)ï¼šå£°é“æ•°, é‡åŒ–ä½æ•°ï¼ˆbyteå•ä½ï¼‰, é‡‡
+    # æ ·é¢‘ç‡, é‡‡æ ·ç‚¹æ•°, å‹ç¼©ç±»å‹, å‹ç¼©ç±»å‹çš„æè¿°ã€‚waveæ¨¡å—åªæ”¯æŒéå‹ç¼©çš„æ•°æ®ï¼Œå› æ­¤å¯ä»¥å¿½ç•¥æœ€åä¸¤ä¸ªä¿¡æ¯
     params = f.getparams()
     nchannels, sampwidth, framerate, nframes = params[:4]
     CutFrameNum = framerate * CutTimeDef / 1000
@@ -42,8 +42,8 @@ def CutFile():
     print("framerate=%d" % (framerate))
     print("nframes=%d" % (nframes))
     str_data = f.readframes(nframes)
-    f.close()  # ½«²¨ĞÎÊı¾İ×ª»»³ÉÊı×é
-    # ĞèÒª¸ù¾İÉùµÀÊıºÍÁ¿»¯µ¥Î»£¬½«¶ÁÈ¡µÄ¶ş½øÖÆÊı¾İ×ª»»ÎªÒ»¸ö¿ÉÒÔ¼ÆËãµÄÊı×é
+    f.close()  # å°†æ³¢å½¢æ•°æ®è½¬æ¢æˆæ•°ç»„
+    # éœ€è¦æ ¹æ®å£°é“æ•°å’Œé‡åŒ–å•ä½ï¼Œå°†è¯»å–çš„äºŒè¿›åˆ¶æ•°æ®è½¬æ¢ä¸ºä¸€ä¸ªå¯ä»¥è®¡ç®—çš„æ•°ç»„
     wave_data = np.fromstring(str_data, dtype=np.short)
     wave_data.shape = -1, 2
     wave_data = wave_data.T
@@ -61,12 +61,12 @@ def CutFile():
         StepTotalNum = haha * StepNum;
 
         temp_dataTemp.shape = 1, -1
-        temp_dataTemp = temp_dataTemp.astype(np.short)  # ´ò¿ªWAVÎÄµµ
+        temp_dataTemp = temp_dataTemp.astype(np.short)  # æ‰“å¼€WAVæ–‡æ¡£
         f = wave.open(r"" + FileName, "wb")  #
-        # ÅäÖÃÉùµÀÊı¡¢Á¿»¯Î»ÊıºÍÈ¡ÑùÆµÂÊ
+        # é…ç½®å£°é“æ•°ã€é‡åŒ–ä½æ•°å’Œå–æ ·é¢‘ç‡
         f.setnchannels(nchannels)
         f.setsampwidth(sampwidth)
         f.setframerate(framerate)
-        # ½«wav_data×ª»»Îª¶ş½øÖÆÊı¾İĞ´ÈëÎÄ¼ş
+        # å°†wav_dataè½¬æ¢ä¸ºäºŒè¿›åˆ¶æ•°æ®å†™å…¥æ–‡ä»¶
         f.writeframes(temp_dataTemp.tostring())
         f.close()
